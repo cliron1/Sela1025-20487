@@ -1,22 +1,15 @@
 {
   "dependencies": {
-    "mssql1": {
-      "type": "mssql.local",
-      "connectionId": "ConnectionStrings:DefaultConnection"
-    },
-    "secrets1": {
-      "type": "secrets.user"
-    },
     "secrets2": {
       "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.KeyVault/vaults/MvcWithAuthsLironVault",
       "type": "secrets.keyVault",
       "connectionId": "VaultUri",
-      "secretStore": null
+      "secretStore": "AzureAppSettings"
     },
-    "mssql2": {
+    "mssql1": {
       "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/liron-1025/databases/site_db",
       "type": "mssql.azure",
-      "connectionId": "Database",
+      "connectionId": "ConnectionStrings:DefaultConnection",
       "secretStore": "AzureKeyVault"
     }
   }

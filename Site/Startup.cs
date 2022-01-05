@@ -28,7 +28,7 @@ namespace Site {
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-		public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
+		public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ApplicationDbContext db) {
 			if (env.IsDevelopment()) {
 				app.UseDeveloperExceptionPage();
 				app.UseMigrationsEndPoint();
@@ -39,6 +39,8 @@ namespace Site {
 			}
 			app.UseHttpsRedirection();
 			app.UseStaticFiles();
+
+			db.Database.Migrate();
 
 			app.UseRouting();
 
